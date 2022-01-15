@@ -1,0 +1,29 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "A team-profile-generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mully7773/Team-Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "Nick Mullenmeister",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mully7773/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Mully7773/Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
+}
