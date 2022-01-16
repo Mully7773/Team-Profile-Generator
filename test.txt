@@ -1,6 +1,6 @@
 {
-  "managerName": "asdfasd",
-  "managerId": "asdfasd",
-  "managerEmail": "asfdas",
+  "managerName": "TIm",
+  "managerId": "asfd",
+  "managerEmail": "asdf",
   "managerOffice": "asdf"
 }

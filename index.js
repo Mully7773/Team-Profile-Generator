@@ -14,7 +14,7 @@ const Engineer = require("./lib/Engineer");
 //empty array to save newly created employees
 const employees = [];
 
-const questions = () => {
+const managerQuestions = () => {
     inquirer
         .prompt([
             {
@@ -46,6 +46,7 @@ const questions = () => {
             //     managerAns.managerOffice
             // );
             // employees.push(manager);
+            
             console.log(managerAns);
             fs.writeFile('test.txt', JSON.stringify(managerAns, null, 2), (err) => {
                 if (err) throw err;
@@ -58,10 +59,11 @@ const questions = () => {
                 //         }
                 //     })
             })
+            
         })
 }
 
-questions()
+
 
 function addMoreEmployees() {
     return inquirer
@@ -114,7 +116,11 @@ function addMoreEmployees() {
         .then((employeeResponse) => {
             if (employeeResponse.addAnotherEmployee) {
                 addMoreEmployees()
+            } else {
+                writeToHtml();
             }
+
+    
         })
 //         .then ((employeeResponse => {
 //             console.log(employeeResponse);
@@ -126,3 +132,13 @@ function addMoreEmployees() {
 //                     // })
 //         }))
 }
+
+// const writeToHtml = data => {
+//     fs.writeFile("./dist/index.html", JSON.stringify(data, null, 2), err => {
+//         if (err) throw err;
+//                 console.log("Success!")
+//     })
+// }
+
+
+managerQuestions()
