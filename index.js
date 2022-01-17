@@ -159,3 +159,9 @@ const writeToHtml = data => {
 
 
 managerQuestions()
+// generateHTML();
+
+//get template to work
+//make CSS file
+//add validation
+//add default email thing
