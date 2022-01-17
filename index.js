@@ -48,9 +48,7 @@ const managerQuestions = () => {
             employeesArray.push(manager);
             
             
-            fs.writeFile('test.txt', JSON.stringify(managerAns, null, 2), (err) => {
-                if (err) throw err;
-                console.log("Success!")
+            
 
                 addMoreEmployees()
                 //     .then((ans) => {
@@ -58,7 +56,7 @@ const managerQuestions = () => {
                 //             questions();
                 //         }
                 //     })
-            })
+            
             
         })
 }
@@ -114,6 +112,7 @@ function addMoreEmployees() {
             }
         ])
         .then((employeeResponse) => {
+            if (employeeResponse.employeePosition === "Engineer") {
             const engineer = new Engineer(
                 employeeResponse.name,
                 employeeResponse.id,
@@ -121,6 +120,8 @@ function addMoreEmployees() {
                 employeeResponse.github
             );
             employeesArray.push(engineer);
+            }
+            if (employeeResponse.employeePosition === "Intern") {
             const intern = new Intern(
                 employeeResponse.name,
                 employeeResponse.id,
@@ -128,13 +129,14 @@ function addMoreEmployees() {
                 employeeResponse.school
             );
             employeesArray.push(intern);
+            }
             if (employeeResponse.addAnotherEmployee) {
                 addMoreEmployees()
             } else {
-                // writeToHtml();
+                writeToHtml();
             }
 
-    
+        
         })
 //         .then ((employeeResponse => {
 //             console.log(employeeResponse);
@@ -148,12 +150,12 @@ function addMoreEmployees() {
 }
 
 
-// const writeToHtml = data => {
-//     fs.writeFile("./dist/index.html", JSON.stringify(data, null, 2), err => {
-//         if (err) throw err;
-//                 console.log("Success!")
-//     })
-// }
+const writeToHtml = data => {
+    fs.writeFile("./dist/index.html", JSON.stringify(employeesArray, null, 2), err => {
+        if (err) throw err;
+                console.log("Success!")
+    })
+}
 
 
 managerQuestions()

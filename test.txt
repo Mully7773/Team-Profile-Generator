@@ -1,6 +1,0 @@
-{
-  "name": "Cooolio",
-  "id": "54654",
-  "email": "fsadfd5",
-  "officeNumber": "fsdf"
-}
