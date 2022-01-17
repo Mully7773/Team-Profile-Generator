@@ -12,42 +12,42 @@ const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 
 //empty array to save newly created employees
-const employees = [];
+const employeesArray = [];
 
 const managerQuestions = () => {
     inquirer
         .prompt([
             {
                 type: "input",
-                name: "managerName",
+                name: "name",
                 message: "What is the manager's name?",
             },
             {
                 type: "input",
-                name: "managerId",
+                name: "id",
                 message: "What is the manager's ID number?"
             },
             {
                 type: "input",
-                name: "managerEmail",
+                name: "email",
                 message: "What is the manager's email address?"
             },
             {
                 type: "input",
-                name: "managerOffice",
+                name: "officeNumber",
                 message: "What is the manager's office number?"
             },
         ])
         .then((managerAns) => {
-            // const manager = new Manager(
-            //     managerAns.managerName,
-            //     managerAns.managerId,
-            //     managerAns.managerEmail,
-            //     managerAns.managerOffice
-            // );
-            // employees.push(manager);
+            const manager = new Manager(
+                managerAns.name,
+                managerAns.id,
+                managerAns.email,
+                managerAns.officeNumber
+            );
+            employeesArray.push(manager);
             
-            console.log(managerAns);
+            
             fs.writeFile('test.txt', JSON.stringify(managerAns, null, 2), (err) => {
                 if (err) throw err;
                 console.log("Success!")
@@ -81,28 +81,28 @@ function addMoreEmployees() {
             },
             {
                 type: "input",
-                name: "employeeName",
+                name: "name",
                 message: "What is the employee's name?"
             },
             {
                 type: "input",
-                name: "employeeID",
+                name: "id",
                 message: "What is the employee's ID number?"
             },
             {
                 type: "input",
-                name: "employeeEmail",
+                name: "email",
                 message: "What is the employee's email address?"
             },
             {
                 type: "input",
-                name: "employeeGithub",
+                name: "github",
                 message: "What is the engineer's Github username?",
                 when: (input) => input.employeePosition === "Engineer" //used to determine whether this question should be asked
             },
             {
                 type: "input",
-                name: "employeeSchool",
+                name: "school",
                 message: "What school does the intern attend?",
                 when: (input) => input.employeePosition === "Intern"
             },
@@ -114,10 +114,24 @@ function addMoreEmployees() {
             }
         ])
         .then((employeeResponse) => {
+            const engineer = new Engineer(
+                employeeResponse.name,
+                employeeResponse.id,
+                employeeResponse.email,
+                employeeResponse.github
+            );
+            employeesArray.push(engineer);
+            const intern = new Intern(
+                employeeResponse.name,
+                employeeResponse.id,
+                employeeResponse.email,
+                employeeResponse.school
+            );
+            employeesArray.push(intern);
             if (employeeResponse.addAnotherEmployee) {
                 addMoreEmployees()
             } else {
-                writeToHtml();
+                // writeToHtml();
             }
 
     
@@ -132,6 +146,7 @@ function addMoreEmployees() {
 //                     // })
 //         }))
 }
+
 
 // const writeToHtml = data => {
 //     fs.writeFile("./dist/index.html", JSON.stringify(data, null, 2), err => {

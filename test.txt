@@ -1,6 +1,6 @@
 {
-  "managerName": "TIm",
-  "managerId": "asfd",
-  "managerEmail": "asdf",
-  "managerOffice": "asdf"
+  "name": "Cooolio",
+  "id": "54654",
+  "email": "fsadfd5",
+  "officeNumber": "fsdf"
 }
