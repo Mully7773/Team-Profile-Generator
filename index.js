@@ -155,18 +155,11 @@ function addMoreEmployees() {
 const writeToHtml = data => {
     fs.writeFile("./dist/index.html", generateHTML(employeesArray), err => {
         if (err) throw err;
-                console.log("Successfully wrote to HTML!")
+                console.log("Successfully rendered to HTML!")
     })
 }
 
 
 managerQuestions()
-// .then((addMoreEmployees) => fs.writeFileSync('index.html', generateHTML(employeesArray)))
-// .then(() => console.log('Successfully wrote to index.html'))
-// .catch((error) => console.log(error));
 
-// generateHTML();
-
-//add styles in CSS file
 //add validation
-//add default email thing
