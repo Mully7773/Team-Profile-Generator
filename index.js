@@ -59,6 +59,7 @@ const managerQuestions = () => {
             
             
         })
+        .catch(error => console.log(error));
 }
 
 
@@ -138,6 +139,7 @@ function addMoreEmployees() {
 
         
         })
+        .catch(error => console.log(error));
 //         .then ((employeeResponse => {
 //             console.log(employeeResponse);
 //             addMoreEmployees()
