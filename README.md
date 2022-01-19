@@ -29,6 +29,15 @@ This is a Node application that uses the npm package inquirer to take user input
 
 * After successful completion of the prompts, an HTML page is generated in the dist folder that illustrates each employee's role.
 
+## Screenshot:
+
+![Screenshot of full screen](./assets/S0.png)
+
+## Video:
+Watch the demo video here:
+
+https://watch.screencastify.com/v/o6eHttpA2PThGAOTMNt1
+
 ## Tools:
 
 1. HTML
