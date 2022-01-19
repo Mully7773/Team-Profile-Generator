@@ -25,12 +25,36 @@ const managerQuestions = () => {
             {
                 type: "input",
                 name: "id",
-                message: "What is the manager's ID number?"
+                message: "What is the manager's ID number?",
+                validate: function(input)
+                {
+                    validation = isNaN(input);
+                    if (validation) {
+                        console.log(`
+                        -----ERROR-----
+                        Please enter a valid number.`)
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
             },
             {
                 type: "input",
                 name: "email",
-                message: "What is the manager's email address?"
+                message: "What is the manager's email address?",
+                validate: function(email)
+                {
+                    validation = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email)
+                    if (validation) {
+                        return true;
+                    } else {
+                        console.log(`
+                        -----ERROR-----
+                        Please enter a valid email address`)
+                        return false;
+                    }
+                }
             },
             {
                 type: "input",
@@ -86,12 +110,36 @@ function addMoreEmployees() {
             {
                 type: "input",
                 name: "id",
-                message: "What is the employee's ID number?"
+                message: "What is the employee's ID number?",
+                validate: function(input)
+                {
+                    validation = isNaN(input);
+                    if (validation) {
+                        console.log(`
+                        -----ERROR-----
+                        Please enter a valid number.`)
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
             },
             {
                 type: "input",
                 name: "email",
-                message: "What is the employee's email address?"
+                message: "What is the employee's email address?",
+                validate: function(email)
+                {
+                    validation = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email)
+                    if (validation) {
+                        return true;
+                    } else {
+                        console.log(`
+                        -----ERROR-----
+                        Please enter a valid email address`)
+                        return false;
+                    }
+                }
             },
             {
                 type: "input",
